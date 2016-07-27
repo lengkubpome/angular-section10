@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
     templateUrl: '/app/contact.component.html'
 })
 export class ContactComponent {
-    onSubmit(form){
+    onSubmit(form: any) {
         console.log(form);
     }
 }

@@ -9,7 +9,7 @@ import {PhotoService} from './photo.service';
             <i class="fa fa-spinner fa-spin fa-3x"></i>
         </div>
         <ul>
-            <li *ngFor="#album of albums">
+            <li *ngFor="let album of albums">
                 {{ album.title }}
             </li> 
         </ul>
@@ -18,12 +18,12 @@ import {PhotoService} from './photo.service';
 })
 export class AlbumsComponent implements OnInit {
     isLoading = true;
-    albums ;
+    albums: any;
 
-    constructor(private _photoService: PhotoService){
+    constructor(private _photoService: PhotoService) {
     }
-    
-    ngOnInit(){
+
+    ngOnInit() {
         this._photoService.getAlbums()
             .subscribe(albums => {
                 this.isLoading = false;
