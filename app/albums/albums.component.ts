@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {PhotoService} from './photo.service';
 
 @Component({
@@ -10,10 +11,12 @@ import {PhotoService} from './photo.service';
         </div>
         <ul>
             <li *ngFor="let album of albums">
-                {{ album.title }}
+           
+              {{ album.title }}
             </li> 
         </ul>
     `,
+    directives: [ROUTER_DIRECTIVES],
     providers: [PhotoService, HTTP_PROVIDERS]
 })
 export class AlbumsComponent implements OnInit {

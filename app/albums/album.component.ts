@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
+// import { RouteParams } from '@angular/router';
 import {PhotoService} from './photo.service';
 
 @Component({

@@ -1,14 +1,14 @@
 import { provideRouter, RouterConfig } from '@angular/router';
 
-import { AlbumComponent } from './album.component';
-import { AlbumsComponent } from './albums.component';
-import { ContactComponent } from './contact.component';
+import { AlbumComponent } from './albums/album.component';
+import { AlbumsComponent } from './albums/albums.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
 const routes: RouterConfig = [
   { path: 'albums', component: AlbumsComponent },
-  { path: 'album', component: AlbumComponent },
+  { path: 'album/:id', component: AlbumComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', component: AlbumsComponent }
 ];
