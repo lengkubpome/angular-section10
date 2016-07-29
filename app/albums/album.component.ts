@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import {PhotoService} from './photo.service';
@@ -15,9 +15,10 @@ import {PhotoService} from './photo.service';
    `,
     providers: [PhotoService, HTTP_PROVIDERS]
 })
-export class AlbumComponent implements OnInit {
+export class AlbumComponent implements OnInit, OnDestroy {
     isLoading = true;
     photos: any;
+    private sub: any;
 
 
     constructor(
@@ -26,12 +27,20 @@ export class AlbumComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.sub = this._activatedRoute.params.subscribe(params => {
+            let id = +params['id'];
 
-        this._photoService.getPhotos(10)
-            .subscribe(photos => {
-                this.isLoading = false;
-                this.photos = photos;
-            });
+            this._photoService.getPhotos(id)
+                .subscribe(photos => {
+                    this.isLoading = false;
+                    this.photos = photos;
+                });
+        });
+
+    }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
     }
 
 
