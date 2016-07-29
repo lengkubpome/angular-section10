@@ -26,10 +26,10 @@ export class HeroDetailComponent implements OnInit, OnDestroy  {
     private router: Router,
     private service: HeroService) {}
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-       let id = +params['id']; // (+) converts string 'id' to a number
-       this.service.getHero(id).then(hero => this.hero = hero);
-     });
+    // this.sub = this.route.params.subscribe(params => {
+    //    let id = +params['id']; // (+) converts string 'id' to a number
+    //    this.service.getHero(id).then(hero => this.hero = hero);
+    //  });
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

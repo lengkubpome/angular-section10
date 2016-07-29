@@ -11,8 +11,9 @@ import {PhotoService} from './photo.service';
         </div>
         <ul>
             <li *ngFor="let album of albums">
-           
-              {{ album.title }}
+               <a [routerLink]="['/album',album.id]" routerLinkActive="active">
+                  {{ album.title }}
+                </a>
             </li> 
         </ul>
     `,

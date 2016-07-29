@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HTTP_PROVIDERS} from '@angular/http';
-// import { RouteParams } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import {PhotoService} from './photo.service';
 
 @Component({
@@ -17,16 +17,24 @@ import {PhotoService} from './photo.service';
 })
 export class AlbumComponent implements OnInit {
     isLoading = true;
-    photos : any;
+    photos: any;
 
-    constructor(private _photoService: PhotoService){
-    }
-    
-    ngOnInit(){
-        this._photoService.getPhotos(1)
+
+    constructor(
+        private _photoService: PhotoService,
+        private _activatedRoute: ActivatedRoute
+    ) { }
+
+    ngOnInit() {
+
+        this._photoService.getPhotos(10)
             .subscribe(photos => {
                 this.isLoading = false;
                 this.photos = photos;
             });
     }
+
+
+
+
 }

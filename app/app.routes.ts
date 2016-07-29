@@ -10,11 +10,11 @@ import { heroesRoutes } from './heroes/heroes.routes';
 
 
 const routes: RouterConfig = [
-  ...heroesRoutes,
+  { path: '', redirectTo: 'albums', pathMatch: 'full' },
   { path: 'albums', component: AlbumsComponent },
   { path: 'album/:id', component: AlbumComponent },
   { path: 'contact', component: ContactComponent },
-    // { path: 'heroes', component: HeroListComponent },
+  ...heroesRoutes,
   { path: '**', component: AlbumsComponent }
 ];
 
