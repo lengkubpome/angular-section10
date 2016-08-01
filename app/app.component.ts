@@ -5,10 +5,6 @@ import { HeroService } from './heroes/hero.service';
 
 
 
-// import { AlbumComponent } from './albums/album.component';
-// import { AlbumsComponent } from './albums/albums.component';
-// import { ContactComponent } from './contact/contact.component';
-
 
 @Component({
     selector: 'my-app',
