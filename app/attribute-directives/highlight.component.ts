@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HighlightDirective } from './highlight.directive';
+import { HighlightDirective, UppercaseDirective, MaskDirective} from './highlight.directive';
+
 @Component({
   selector: 'att-directive',
   template: `
@@ -15,7 +16,31 @@ import { HighlightDirective } from './highlight.directive';
   Highlight me too!
 </p>
 
+  Uppercase Directive
+  <br/>
+  <input type="text" [(ngModel)]="name" uppercase />
+  <br/> ngModel value : {{name}}
+  
+  <br/>
+  <br/> Mask Directive:
+  <br/>
+  <input type="text" [(ngModel)]="phone" mask="(**) **** ****" />
+  <br/> ngModel value: {{phone}}
   `,
-  directives: [HighlightDirective]
+  styles: [`
+    :host {
+      display: block;
+      border: 1px solid black;
+    }
+  `],
+  directives: [HighlightDirective, UppercaseDirective, MaskDirective]
 })
-export class MyHighlightComponent { }
+export class MyHighlightComponent {
+  public name: string;
+  public phone: string;
+  constructor() {
+    this.name = "";
+    this.phone = "";
+  }
+
+}
